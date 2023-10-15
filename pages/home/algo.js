@@ -1,4 +1,8 @@
-export function getPalette(pixelData, iterations) {
+// AlgoPage.js
+
+import React from "react";
+
+function getPalette(pixelData, iterations) {
   if (pixelData.length === 0) {
     return [];
   }
@@ -74,4 +78,14 @@ function getAverageColor(pixelData) {
   }
   const numberOfPixels = pixelData.length / 4;
   return sums.map((v) => Math.round(v / numberOfPixels));
+}
+
+export { getPalette }; // Export the getPalette function
+
+export default function AlgoPage() {
+  return (
+    <div>
+      {/* Your React component content goes here */}
+    </div>
+  );
 }
