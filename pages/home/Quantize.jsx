@@ -39,7 +39,7 @@ function Quant({ pixels }) {
 
   return (
     <div>
-      {pixels.length > 0 && (
+      {pixels?.length > 0 && (
         <div>
           {showAlert && (
             <div className="alert">
@@ -83,7 +83,7 @@ function Quant({ pixels }) {
           </button>
         </div>
       )}
-      {palette.length > 0 && <ColorTiles pixels={palette} />}
+      {palette?.length > 0 && <ColorTiles pixels={palette} />}
     </div>
   );
 }

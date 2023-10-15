@@ -9,7 +9,7 @@ function ColorTiles({ pixels }) {
     const uniqueColors = [];
     const p = pixels;
 
-    for (let i = 0; i < p.length; i += 4) {
+    for (let i = 0; i < p?.length; i += 4) {
       const rgba = `rgba(${p[i]},${p[i + 1]},${p[i + 2]},${p[i + 3]})`;
       const hex = rgbToHex(p[i], p[i + 1], p[i + 2]);
       const colorNames = namer(hex).ntc;
@@ -19,7 +19,7 @@ function ColorTiles({ pixels }) {
         uniqueColors.push({
           rgba,
           hex,
-          colorName: colorNames.length > 0 ? colorNames[0].name : "Unknown",
+          colorName: colorNames?.length > 0 ? colorNames[0].name : "Unknown",
         });
       }
     }
@@ -31,7 +31,7 @@ function ColorTiles({ pixels }) {
   function rgbToHex(r, g, b) {
     const componentToHex = (c) => {
       const hex = c.toString(16);
-      return hex.length === 1 ? "0" + hex : hex;
+      return hex?.length === 1 ? "0" + hex : hex;
     };
 
     return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
@@ -59,7 +59,7 @@ function ColorTiles({ pixels }) {
   return (
     <div className="color-tiles-container">
       <div className="color-tiles">
-        {pixels.length > 0 &&
+        {pixels?.length > 0 &&
           uniqueColors.map((color, index) => (
             <div
               key={index}
